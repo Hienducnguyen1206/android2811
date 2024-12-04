@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/studentListFragment">
+
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="vn.edu.hust.studentman.StudentListFragment"
+        android:label="Student List"
+        tools:layout="@layout/fragment_student_list">
+        <action
+            android:id="@+id/actionStudentListFragmentToAddStudentFragment"
+            app:destination="@id/addStudentFragment" />
+        <action
+            android:id="@+id/actionStudentListFragmentToEditStudentFragment"
+            app:destination="@id/editStudentFragment">
+            <argument
+                android:name="studentData"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="vn.edu.hust.studentman.AddStudentFragment"
+        android:label="Add Student"
+        tools:layout="@layout/fragment_add_student">
+        <action
+            android:id="@+id/actionAddStudentFragmentToStudentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editStudentFragment"
+        android:name="vn.edu.hust.studentman.EditStudentFragment"
+        android:label="Edit Student"
+        tools:layout="@layout/fragment_edit_student">
+        <argument
+            android:name="studentData"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionEditStudentFragmentToStudentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+
+</navigation>
